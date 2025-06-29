@@ -1,5 +1,5 @@
 FROM mlocati/php-extension-installer:2.4 AS php-extension-installer
-FROM composer:2.7 AS composer
+FROM composer:2.8 AS composer
 
 
 
