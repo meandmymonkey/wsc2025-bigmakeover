@@ -2,7 +2,7 @@
 session_start();
 include('db_connect.php');
 
-$id = (int)$_GET['id'];
+$id = $symfonyRequest->query->getInt('id');
 if (!$id) {
     header("Location: index.php");
     exit;
