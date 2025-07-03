@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include('db_connect.php');
 
 $result = pg_query($conn, "SELECT * FROM blog_posts ORDER BY created_at DESC");

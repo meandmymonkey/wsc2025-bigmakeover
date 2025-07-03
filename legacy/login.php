@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include('db_connect.php');
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Movie Quote Blog</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="header-nav">
