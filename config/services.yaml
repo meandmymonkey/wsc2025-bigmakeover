@@ -1,0 +1,21 @@
+parameters:
+
+    legacy_web_path: '%kernel.project_dir%/legacy'
+    legacy_cli_path: '%kernel.project_dir%/legacy/bin'
+
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+
+    legacy.services:
+        class: Symfony\Component\DependencyInjection\ServiceLocator
+        arguments:
+            -
+                #mailer: '@Symfony\Component\Mailer\MailerInterface'
+                #dbal:   '@doctrine.dbal.default_connection'
+                router: '@Symfony\Component\Routing\Generator\UrlGeneratorInterface'

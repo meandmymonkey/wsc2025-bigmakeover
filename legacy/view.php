@@ -22,14 +22,14 @@ if (!$post) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($post['title']); ?> - Movie Quote Blog</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="header-nav">
         <h1>Movie Quote Blog</h1>
         <div class="user-nav">
             <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']): ?>
-                Welcome, <?php echo htmlspecialchars($_SESSION['display_name']); ?> | 
+                Welcome, <?php echo htmlspecialchars($_SESSION['display_name']); ?> |
                 <a href="logout.php">Logout</a>
             <?php else: ?>
                 <a href="login.php">Login</a>

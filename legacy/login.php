@@ -3,20 +3,20 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include('db_connect.php');
-    
+
     $email = $_POST['email'];
     $password = md5($_POST['password']); // Using MD5 as per legacy requirements
-    
-    $result = pg_query_params($conn, 
+
+    $result = pg_query_params($conn,
         "SELECT * FROM users WHERE email = $1 AND password = $2 AND enabled = TRUE",
         array($email, $password)
     );
-    
+
     if ($row = pg_fetch_assoc($result)) {
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['display_name'] = $row['display_name'];
         $_SESSION['is_logged_in'] = true;
-        
+
         header('Location: index.php');
         exit;
     } else {
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Movie Quote Blog</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../public/css/styles.css">
 </head>
 <body>
     <div class="header-nav">
@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="form-container">
         <h2>Login</h2>
-        
+
         <?php if (isset($error)): ?>
             <div style="color: #e74c3c; margin-bottom: 1em;"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
-        
+
         <form method="post" action="login.php">
             <div class="form-group">
                 <label>Email:</label>
